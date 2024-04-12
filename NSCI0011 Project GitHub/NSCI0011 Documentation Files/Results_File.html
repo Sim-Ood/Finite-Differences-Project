@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module Results_File</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">Results_File</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Csimran%20oodit%5Ctopics%20in%20scientific%20computing%5Cnsci0011%20documentation%5Cdocs%5Csrc%5Cresults_file.py">c:\users\simran oodit\topics in scientific computing\nsci0011 documentation\docs\src\results_file.py</a></td></tr></table>
+    <p><span class="code">This&nbsp;is&nbsp;the&nbsp;main&nbsp;python&nbsp;module&nbsp;where&nbsp;we&nbsp;call&nbsp;all&nbsp;the&nbsp;functions&nbsp;to&nbsp;initialise,<br>
+iteratively&nbsp;update,&nbsp;and&nbsp;then&nbsp;plot&nbsp;the&nbsp;stream&nbsp;S&nbsp;and&nbsp;vorticity&nbsp;W&nbsp;grids.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="numpy.html">numpy</a><br>
+</td><td class="multicolumn"><a href="pydoc.html">pydoc</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-main"><strong>main</strong></a>(n, Rey, val_S, val_W, max_sweeps, tol, start_beam_at, prop_width, prop_height)</dt><dd><span class="code">This&nbsp;is&nbsp;the&nbsp;main&nbsp;function&nbsp;to&nbsp;execute&nbsp;the&nbsp;full&nbsp;process&nbsp;and&nbsp;call&nbsp;the&nbsp;other&nbsp;functions.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;n:&nbsp;Number&nbsp;of&nbsp;divisions&nbsp;in&nbsp;the&nbsp;y-direction&nbsp;between&nbsp;0-1&nbsp;inclusively.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Rey:&nbsp;The&nbsp;Reynolds&nbsp;number.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;val_S:&nbsp;The&nbsp;numerical&nbsp;starting&nbsp;value&nbsp;the&nbsp;ghost&nbsp;points&nbsp;in&nbsp;the&nbsp;stream&nbsp;S&nbsp;grid&nbsp;will&nbsp;be&nbsp;set&nbsp;to.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;val_W:&nbsp;The&nbsp;numerical&nbsp;starting&nbsp;value&nbsp;the&nbsp;ghost&nbsp;points&nbsp;in&nbsp;the&nbsp;vorticity&nbsp;W&nbsp;grid&nbsp;will&nbsp;be&nbsp;set&nbsp;to.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;max_sweeps:&nbsp;The&nbsp;maximum&nbsp;number&nbsp;of&nbsp;Gauss-Seidel&nbsp;iterations&nbsp;the&nbsp;function&nbsp;will&nbsp;perform.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tol:&nbsp;The&nbsp;tolerance&nbsp;for&nbsp;convergence,&nbsp;if&nbsp;relative&nbsp;error&nbsp;is&nbsp;less&nbsp;than&nbsp;or&nbsp;equal&nbsp;to&nbsp;tol,&nbsp;the&nbsp;iteration&nbsp;loop&nbsp;breaks.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;start_beam_at:&nbsp;The&nbsp;proportion&nbsp;along&nbsp;the&nbsp;x-axis&nbsp;where&nbsp;the&nbsp;beamfront&nbsp;DE&nbsp;is&nbsp;located&nbsp;-&nbsp;a&nbsp;float&nbsp;between&nbsp;0-1.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prop_width:&nbsp;Width&nbsp;of&nbsp;the&nbsp;beam&nbsp;as&nbsp;a&nbsp;proportion&nbsp;of&nbsp;the&nbsp;x-axis&nbsp;-&nbsp;a&nbsp;float&nbsp;between&nbsp;0-1.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prop_height:&nbsp;Height&nbsp;of&nbsp;the&nbsp;beam&nbsp;as&nbsp;a&nbsp;proportion&nbsp;of&nbsp;the&nbsp;y-axis&nbsp;-&nbsp;a&nbsp;float&nbsp;between&nbsp;0-1.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Results:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Contour&nbsp;plot&nbsp;of&nbsp;stream&nbsp;function&nbsp;for&nbsp;the&nbsp;full&nbsp;solution&nbsp;space.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Contour&nbsp;plot&nbsp;of&nbsp;vorticity&nbsp;function&nbsp;for&nbsp;the&nbsp;full&nbsp;solution&nbsp;space.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Plot&nbsp;of&nbsp;relative&nbsp;errors&nbsp;in&nbsp;the&nbsp;stream&nbsp;function&nbsp;against&nbsp;iterations.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Plot&nbsp;of&nbsp;relative&nbsp;errors&nbsp;in&nbsp;the&nbsp;vorticity&nbsp;function&nbsp;against&nbsp;iterations.</span></dd></dl>
+</td></tr></table>
+</body></html>

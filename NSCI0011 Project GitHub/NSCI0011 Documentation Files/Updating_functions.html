@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module Updating_functions</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">Updating_functions</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Csimran%20oodit%5Ctopics%20in%20scientific%20computing%5Cnsci0011%20documentation%5Cdocs%5Csrc%5Cupd_module%5Cupdating_functions.py">c:\users\simran oodit\topics in scientific computing\nsci0011 documentation\docs\src\upd_module\updating_functions.py</a></td></tr></table>
+    <p><span class="code">This&nbsp;file&nbsp;contains&nbsp;documentation&nbsp;for&nbsp;the&nbsp;updating&nbsp;functions.<br>
+&nbsp;<br>
+These&nbsp;functions&nbsp;are&nbsp;written&nbsp;with&nbsp;the&nbsp;assumption&nbsp;that&nbsp;the&nbsp;solution&nbsp;grids&nbsp;will&nbsp;be&nbsp;transposed&nbsp;and&nbsp;flipped.<br>
+Hence&nbsp;for&nbsp;these&nbsp;functions,&nbsp;the&nbsp;(i,j)&nbsp;indexing&nbsp;of&nbsp;the&nbsp;solution&nbsp;grids&nbsp;should&nbsp;be&nbsp;treated&nbsp;as&nbsp;(x,y).</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="numpy.html">numpy</a><br>
+</td><td class="multicolumn"><a href="pydoc.html">pydoc</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-apply_boundary_conditions"><strong>apply_boundary_conditions</strong></a>(S, W, h, beamfront, beamback, beamtop)</dt><dd><span class="code">This&nbsp;function&nbsp;calls&nbsp;grid_bound&nbsp;and&nbsp;beam_bound&nbsp;to&nbsp;apply&nbsp;the&nbsp;full&nbsp;set&nbsp;of&nbsp;boundary&nbsp;conditions.<br>
+This&nbsp;implements&nbsp;the&nbsp;conditions&nbsp;at&nbsp;the&nbsp;Inlet,&nbsp;Outlet,&nbsp;Surface,&nbsp;Centreline,&nbsp;Beamfront,&nbsp;Beamback,&nbsp;and&nbsp;Beamtop.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;S:&nbsp;Stream&nbsp;grid&nbsp;-&nbsp;a&nbsp;2D&nbsp;numpy&nbsp;array.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;W:&nbsp;Vorticity&nbsp;grid&nbsp;-&nbsp;a&nbsp;2D&nbsp;numpy&nbsp;array.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;h:&nbsp;The&nbsp;unit&nbsp;of&nbsp;equal&nbsp;grid&nbsp;spacing.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;beamfront:&nbsp;The&nbsp;integer&nbsp;index&nbsp;along&nbsp;the&nbsp;x-axis&nbsp;where&nbsp;the&nbsp;beamfront&nbsp;DE&nbsp;is&nbsp;located.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;beamback:&nbsp;The&nbsp;integer&nbsp;index&nbsp;along&nbsp;the&nbsp;x-axis&nbsp;there&nbsp;the&nbsp;beamback&nbsp;FG&nbsp;is&nbsp;located.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;beamtop:&nbsp;The&nbsp;integer&nbsp;index&nbsp;along&nbsp;the&nbsp;y-axis&nbsp;where&nbsp;the&nbsp;beamtop&nbsp;EF&nbsp;is&nbsp;located.<br>
+&nbsp;<br>
+Retuns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;S:&nbsp;The&nbsp;input&nbsp;stream&nbsp;grid&nbsp;with&nbsp;all&nbsp;boundary&nbsp;conditions&nbsp;applied.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;W:&nbsp;The&nbsp;input&nbsp;vorticity&nbsp;grid&nbsp;with&nbsp;all&nbsp;boundary&nbsp;conditions&nbsp;applied.</span></dd></dl>
+ <dl><dt><a name="-apply_update_rules"><strong>apply_update_rules</strong></a>(S, W, R, n, h)</dt><dd><span class="code">The&nbsp;function&nbsp;loops&nbsp;over&nbsp;the&nbsp;solution&nbsp;grids,&nbsp;applying&nbsp;the&nbsp;update&nbsp;rule&nbsp;to&nbsp;each&nbsp;point&nbsp;in&nbsp;the&nbsp;loop&nbsp;range.<br>
+This&nbsp;excludes&nbsp;the&nbsp;boundaries&nbsp;(the&nbsp;top&nbsp;row,&nbsp;bottom&nbsp;row,&nbsp;and&nbsp;outermost&nbsp;columns).<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;S:&nbsp;Stream&nbsp;grid&nbsp;-&nbsp;a&nbsp;2D&nbsp;numpy&nbsp;array.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;W:&nbsp;Vorticity&nbsp;grid&nbsp;-&nbsp;a&nbsp;2D&nbsp;numpy&nbsp;array.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;R:&nbsp;Grid&nbsp;Reynolds&nbsp;number.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;n:&nbsp;Number&nbsp;of&nbsp;divisions&nbsp;in&nbsp;the&nbsp;y-direction&nbsp;between&nbsp;0-1&nbsp;inclusively.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;h:&nbsp;The&nbsp;unit&nbsp;of&nbsp;equal&nbsp;grid&nbsp;spacing.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;S:&nbsp;The&nbsp;input&nbsp;stream&nbsp;grid&nbsp;updated&nbsp;by&nbsp;one&nbsp;Gauss-Seidel&nbsp;iteration.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;W:&nbsp;The&nbsp;input&nbsp;vorticity&nbsp;grid&nbsp;updated&nbsp;by&nbsp;one&nbsp;Gauss-Seidel&nbsp;iteration.</span></dd></dl>
+ <dl><dt><a name="-beam_bound"><strong>beam_bound</strong></a>(S, W, beamfront, beamback, beamtop, h)</dt><dd><span class="code">This&nbsp;function&nbsp;applies&nbsp;the&nbsp;boundary&nbsp;conditions&nbsp;at&nbsp;the&nbsp;beam&nbsp;surfaces.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;S:&nbsp;Stream&nbsp;grid&nbsp;-&nbsp;a&nbsp;2D&nbsp;numpy&nbsp;array.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;W:&nbsp;Vorticity&nbsp;grid&nbsp;-&nbsp;a&nbsp;2D&nbsp;numpy&nbsp;array.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;beamfront:&nbsp;The&nbsp;integer&nbsp;index&nbsp;along&nbsp;the&nbsp;x-axis&nbsp;where&nbsp;the&nbsp;beamfront&nbsp;DE&nbsp;is&nbsp;located.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;beamback:&nbsp;The&nbsp;integer&nbsp;index&nbsp;along&nbsp;the&nbsp;x-axis&nbsp;there&nbsp;the&nbsp;beamback&nbsp;FG&nbsp;is&nbsp;located.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;beamtop:&nbsp;The&nbsp;integer&nbsp;index&nbsp;along&nbsp;the&nbsp;y-axis&nbsp;where&nbsp;the&nbsp;beamtop&nbsp;EF&nbsp;is&nbsp;located.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;h:&nbsp;The&nbsp;unit&nbsp;of&nbsp;equal&nbsp;grid&nbsp;spacing.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;S:&nbsp;The&nbsp;input&nbsp;stream&nbsp;grid&nbsp;with&nbsp;its&nbsp;beam&nbsp;boundaries&nbsp;updated.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;W:&nbsp;The&nbsp;input&nbsp;vorticity&nbsp;grid&nbsp;with&nbsp;its&nbsp;beam&nbsp;boundaries&nbsp;updated.</span></dd></dl>
+ <dl><dt><a name="-get_beam"><strong>get_beam</strong></a>(start_beam_at, prop_width, prop_height, x, y)</dt><dd><span class="code">This&nbsp;function&nbsp;defines&nbsp;the&nbsp;index&nbsp;values&nbsp;where&nbsp;the&nbsp;beam&nbsp;is&nbsp;located&nbsp;in&nbsp;the&nbsp;solution&nbsp;grids.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;start_beam_at:&nbsp;The&nbsp;proportion&nbsp;along&nbsp;the&nbsp;x-axis&nbsp;where&nbsp;the&nbsp;beamfront&nbsp;DE&nbsp;is&nbsp;located&nbsp;-&nbsp;a&nbsp;float&nbsp;between&nbsp;0-1.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prop_width:&nbsp;Width&nbsp;of&nbsp;the&nbsp;beam&nbsp;as&nbsp;a&nbsp;proportion&nbsp;of&nbsp;the&nbsp;x-axis&nbsp;-&nbsp;a&nbsp;float&nbsp;between&nbsp;0-1.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prop_height:&nbsp;Height&nbsp;of&nbsp;the&nbsp;beam&nbsp;as&nbsp;a&nbsp;proportion&nbsp;of&nbsp;the&nbsp;y-axis&nbsp;-&nbsp;a&nbsp;float&nbsp;between&nbsp;0-1.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:&nbsp;The&nbsp;array&nbsp;of&nbsp;points&nbsp;along&nbsp;the&nbsp;x-axis.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;y:&nbsp;The&nbsp;array&nbsp;of&nbsp;points&nbsp;along&nbsp;the&nbsp;y-axis.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;beamfront:&nbsp;The&nbsp;integer&nbsp;index&nbsp;along&nbsp;the&nbsp;x-axis&nbsp;where&nbsp;the&nbsp;beamfront&nbsp;DE&nbsp;is&nbsp;located.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;beamback:&nbsp;The&nbsp;integer&nbsp;index&nbsp;along&nbsp;the&nbsp;x-axis&nbsp;there&nbsp;the&nbsp;beamback&nbsp;FG&nbsp;is&nbsp;located.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;beamtop:&nbsp;The&nbsp;integer&nbsp;index&nbsp;along&nbsp;the&nbsp;y-axis&nbsp;where&nbsp;the&nbsp;beamtop&nbsp;EF&nbsp;is&nbsp;located.</span></dd></dl>
+ <dl><dt><a name="-grid_bound"><strong>grid_bound</strong></a>(S, W, h)</dt><dd><span class="code">This&nbsp;function&nbsp;applies&nbsp;the&nbsp;boundary&nbsp;conditions&nbsp;to&nbsp;the&nbsp;solution&nbsp;grids.<br>
+This&nbsp;updates&nbsp;the&nbsp;ghost&nbsp;points&nbsp;using&nbsp;the&nbsp;interior&nbsp;grid&nbsp;points&nbsp;and&nbsp;imposes&nbsp;fixed&nbsp;conditions.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;S:&nbsp;Stream&nbsp;grid&nbsp;-&nbsp;a&nbsp;2D&nbsp;numpy&nbsp;array.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;W:&nbsp;Vorticity&nbsp;grid&nbsp;-&nbsp;a&nbsp;2D&nbsp;numpy&nbsp;array.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;h:&nbsp;The&nbsp;unit&nbsp;of&nbsp;equal&nbsp;grid&nbsp;spacing.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;U:&nbsp;The&nbsp;background&nbsp;flow&nbsp;velocity.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;S:&nbsp;The&nbsp;input&nbsp;stream&nbsp;grid&nbsp;with&nbsp;its&nbsp;grid&nbsp;boundaries&nbsp;updated.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;W:&nbsp;The&nbsp;input&nbsp;vorticity&nbsp;grid&nbsp;with&nbsp;its&nbsp;grid&nbsp;boundaries&nbsp;updated.</span></dd></dl>
+</td></tr></table>
+</body></html>
