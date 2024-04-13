@@ -1,5 +1,5 @@
 # Finite-Differences-Project
-This repository contains the Python files, html documentation, and report for the final project I submitted for the Topics in Scientific Computing course at UCL in 2024.
+This repository contains the Python files, html documentation, and written report of my final project for the Topics in Scientific Computing course at UCL in 2024.
 
 The following is a brief overview of the [project report](https://github.com/Sim-Ood/Finite-Differences-Project/blob/main/NSCI0011%20Project%20GitHub/Finite%20Difference%20Method%20Project%20Final%20Report.pdf). 
 
