@@ -19,7 +19,7 @@ Because the flow is symmetric about the centreline of the flow profile, computat
 ![Diagram of the problem geometry](https://github.com/Sim-Ood/Finite-Differences-Project/blob/main/NSCI0011%20Images/Half%20Flow%20Profile.pdf)
 
 <div align="center">
-    <img height="300" src="NSCI0011 Images/Half Flow Profile.pdf">
+    <img height="300" src="NSCI0011 Images/Half Flow Profile-1.png">
 </div>
 
 
